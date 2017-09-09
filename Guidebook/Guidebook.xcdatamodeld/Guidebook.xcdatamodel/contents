@@ -1,4 +1,56 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Guidebook" representedClassName="Guidebook" syncable="YES" codeGenerationType="class">
+        <attribute name="downloaded" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="toList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="List" inverseName="toGuidebook" inverseEntity="List" syncable="YES"/>
+        <relationship name="toMap" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Map" inverseName="toGuidebook" inverseEntity="Map" syncable="YES"/>
+        <relationship name="toProblem" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Problem" inverseName="toGuidebook" inverseEntity="Problem" syncable="YES"/>
+    </entity>
+    <entity name="List" representedClassName="List" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="toGuidebook" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Guidebook" inverseName="toList" inverseEntity="Guidebook" syncable="YES"/>
+        <relationship name="toProblem" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Problem" inverseName="toList" inverseEntity="Problem" syncable="YES"/>
+    </entity>
+    <entity name="Map" representedClassName="Map" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="northwest" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="satellite" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="southeast" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="terrain" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="toGuidebook" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Guidebook" inverseName="toMap" inverseEntity="Guidebook" syncable="YES"/>
+    </entity>
+    <entity name="Problem" representedClassName="Problem" syncable="YES" codeGenerationType="class">
+        <attribute name="area" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="beta_long" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="beta_short" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="boulder" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="font" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hueco" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="index_font" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="index_hueco" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="index_letter" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="panorama" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="region" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="toGuidebook" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Guidebook" inverseName="toProblem" inverseEntity="Guidebook" syncable="YES"/>
+        <relationship name="toList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="List" inverseName="toProblem" inverseEntity="List" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Guidebook" positionX="-63" positionY="-18" width="128" height="178"/>
+        <element name="Problem" positionX="214" positionY="72" width="128" height="313"/>
+        <element name="List" positionX="160" positionY="-177" width="128" height="103"/>
+        <element name="Map" positionX="-317" positionY="108" width="128" height="165"/>
+    </elements>
 </model>
